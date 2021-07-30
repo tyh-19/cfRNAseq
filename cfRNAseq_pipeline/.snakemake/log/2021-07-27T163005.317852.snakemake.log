@@ -1,3 +1,0 @@
-TypeError in line 217 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-can only concatenate list (not "str") to list
-  File "/data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile", line 217, in <module>

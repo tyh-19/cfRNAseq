@@ -1,2 +1,0 @@
-SyntaxError in line 87 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-Unexpected keyword fastq1 in rule definition (RNAseq.snakefile, line 87)

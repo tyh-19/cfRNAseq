@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 266 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-Missing input files for rule count_bam_read_pairs:
-/data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long.txt

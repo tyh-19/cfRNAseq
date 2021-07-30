@@ -1,3 +1,0 @@
-TypeError in line 307 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-unsupported operand type(s) for +: 'set' and 'str'
-  File "/data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile", line 307, in <module>

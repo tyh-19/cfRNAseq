@@ -1,3 +1,0 @@
-TypeError in line 312 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-unhashable type: 'set'
-  File "/data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile", line 312, in <module>

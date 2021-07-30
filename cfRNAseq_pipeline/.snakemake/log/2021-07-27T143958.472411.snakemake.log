@@ -1,2 +1,0 @@
-SyntaxError in line 183 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-Unexpected keyword wildcard_contraints in rule definition (RNAseq.snakefile, line 183)
