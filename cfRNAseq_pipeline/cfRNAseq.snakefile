@@ -1,20 +1,21 @@
 ######################################################################
 ######################################################################
+
 #config
-tool_dir="/data/taoyuhuan/RNAseq/tools"
+tool_dir="/BioII/lulab_b/taoyuhuan/cfRNAseq/tools"
 
 #reference
-genome_dir="/data/taoyuhuan/RNAseq/reference/genome_index/star"
-fasta_dir="/data/taoyuhuan/RNAseq/reference/fasta"
-bed_dir="/data/taoyuhuan/RNAseq/reference/bed"
-gtf_dir="/data/taoyuhuan/RNAseq/reference/gtf"
+genome_dir="/BioII/lulab_b/taoyuhuan/cfRNAseq/reference/genome_index/star"
+fasta_dir="/BioII/lulab_b/taoyuhuan/cfRNAseq/reference/fasta"
+bed_dir="/BioII/lulab_b/taoyuhuan/cfRNAseq/reference/bed"
+gtf_dir="/BioII/lulab_b/taoyuhuan/cfRNAseq/reference/gtf"
 
 #input
-data_dir="/data/taoyuhuan/RNAseq/test_RNAseq/fastq"
+data_dir="/BioII/lulab_b/taoyuhuan/cfRNAseq/cfRNAseq_pipeline/fastq"
 sample_ids=["CRC-2418488_test_neg","CRC-2276341_test_neg"]
 
 #output
-output_dir="/data/taoyuhuan/RNAseq/test_RNAseq/output"
+output_dir="/BioII/lulab_b/taoyuhuan/cfRNAseq/cfRNAseq_pipeline/output"
 
 #cutadapt
 thread_cutadapt=4
@@ -23,7 +24,7 @@ adaptor1="AGATCGGAAGAGCACACGTCTGAACTCCAGTCA"
 adaptor2="AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT"
 
 #mapping and operate on bam file
-thread_mapping=16
+thread_mapping=8
 threads_decompress=4
 map_steps=['spikein_long','univec','rRNA','hg38_long','circRNA']
 map_steps_sortbyName=['rRNA','hg38_long','circRNA']
@@ -38,7 +39,7 @@ count_overlapping_features="True" #{"True","False"}
 count_levels=['hg38_long','hg38_long_rmdup','intron_spanning']
 
 #temp
-temp_dir="/data/taoyuhuan/RNAseq/test_RNAseq/temp"
+temp_dir="/BioII/lulab_b/taoyuhuan/cfRNAseq/cfRNAseq_pipeline/temp"
 
 ######################################################################
 ######################################################################
@@ -386,7 +387,9 @@ rule featurecounts_intron_spanning:
 
 rule count_matrix:
 	input:
-		ref_genes='/data/taoyuhuan/RNAseq/reference/gtf/reference_genes.txt'
+		featurecounts_intron_spanning=expand(rules.featurecounts_intron_spanning.output,output_dir=output_dir,sample_id=sample_ids),
+		featurecounts_rmdup=expand(rules.featurecounts_rmdup.output,output_dir=output_dir,sample_id=sample_ids),
+		featurecounts=expand(rules.featurecounts.output,output_dir=output_dir,sample_id=sample_ids)
 	output:
 		count_matrix=directory('{output_dir}/count_matrix/{count_level}')
 	params:
@@ -395,7 +398,7 @@ rule count_matrix:
 		rownames='{output_dir}/log/count_matrix/rownames_{count_level}'
 	shell:
 		'''
-		sh {tool_dir}/count_matrix.sh {params.input} {params.rownames} {params.counts} {input.ref_genes} {output.count_matrix}
+		sh {tool_dir}/count_matrix.sh {params.input} {params.rownames} {params.counts} {gtf_dir}/reference_genes.txt {output.count_matrix}
 		'''
 
 
