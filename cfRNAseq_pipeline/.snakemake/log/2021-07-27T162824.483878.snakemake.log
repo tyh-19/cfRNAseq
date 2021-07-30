@@ -1,3 +1,0 @@
-TypeError in line 217 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-unhashable type: 'list'
-  File "/data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile", line 217, in <module>

@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 387 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-Missing input files for rule count_matrix:
-/data/taoyuhuan/RNAseq/test_RNAseq/output/log/count_matrix/reference_genes.txt

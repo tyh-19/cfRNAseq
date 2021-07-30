@@ -1,4 +1,0 @@
-The flag 'directory' used in rule count_matrix is only valid for outputs, not inputs.
-SyntaxError:
-Not all output, log and benchmark files of rule count_matrix contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file.
-  File "/data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile", line 395, in <module>

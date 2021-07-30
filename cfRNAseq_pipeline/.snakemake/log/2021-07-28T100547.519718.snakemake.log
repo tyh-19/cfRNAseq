@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 67 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-Missing input files for rule all:
-/data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region

@@ -1,3 +1,0 @@
-SyntaxError:
-Not all output, log and benchmark files of rule sort_bam_by_name contain the same wildcards. This is crucial though, in order to avoid that two or more jobs write to the same file.
-  File "/data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile", line 209, in <module>

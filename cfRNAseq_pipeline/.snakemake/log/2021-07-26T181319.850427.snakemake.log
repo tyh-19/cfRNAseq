@@ -1,3 +1,0 @@
-TypeError in line 3 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
-list expected at most 1 argument, got 2
-  File "/data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile", line 3, in <module>
