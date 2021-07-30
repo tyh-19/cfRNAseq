@@ -18,6 +18,7 @@ if not success, try create environment by yourself
 #Java version "11.0.9.1-internal"
 conda create --name cfRNAseq
 conda activate cfRNAseq
+conda install snakemake
 conda install openjdk
 conda install -c bioconda snakemake
 conda install cutadapt=3.4
