@@ -32,9 +32,8 @@ conda install subread
 cp /BioII/lulab_b/taoyuhuan/cfRNAseq/tools /{your directory}
 cp /BioII/lulab_b/taoyuhuan/cfRNAseq/reference /{your directory}
 ```
-4. Set parameters in RNAseq.snakefile
+4. Set parameters in cfRNAseq.snakefile
 ```
-######################################################################
 #config
 tool_dir="cfRNAseq/tools"
 
@@ -74,8 +73,6 @@ count_levels=['hg38_long','hg38_long_rmdup','intron_spanning']
 
 #temp
 temp_dir="cfRNAseq/temp"
-
-######################################################################
 ```
 5. Run example data
 ```
