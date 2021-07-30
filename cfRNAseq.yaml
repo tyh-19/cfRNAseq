@@ -71,7 +71,7 @@ dependencies:
   - ghostscript=9.18=1
   - giflib=5.2.1=h36c2ea0_2
   - gitdb=4.0.7=pyhd8ed1ab_0
-  - gitpython=3.1.19=pyhd8ed1ab_0
+#  - gitpython=3.1.19=pyhd8ed1ab_0
   - google-api-core=1.31.0=pyhd8ed1ab_0
   - google-api-python-client=2.14.0=pyhd8ed1ab_0
   - google-auth=1.33.1=pyh6c4a22f_0
@@ -120,12 +120,12 @@ dependencies:
   - libev=4.33=h516909a_1
   - libffi=3.3=h58526e2_2
   - libgcc=7.2.0=h69d50b8_2
-  - libgcc-ng=11.1.0=hc902ee8_2
+#  - libgcc-ng=11.1.0=hc902ee8_2
   - libgd=2.3.2=h78a0170_0
   - libgfortran-ng=9.3.0=ha5ec8a7_17
   - libgfortran5=9.3.0=ha5ec8a7_17
   - libglib=2.68.3=h3e27bee_0
-  - libgomp=11.1.0=hc902ee8_2
+#  - libgomp=11.1.0=hc902ee8_2
   - libiconv=1.16=h516909a_0
   - liblapack=3.9.0=9_openblas
   - libnghttp2=1.43.0=h812cca2_0
@@ -135,7 +135,7 @@ dependencies:
   - librsvg=2.50.7=hc3c00ef_0
   - libsodium=1.0.18=h36c2ea0_1
   - libssh2=1.9.0=ha56f1ee_6
-  - libstdcxx-ng=11.1.0=h56837e0_2
+#  - libstdcxx-ng=11.1.0=h56837e0_2
   - libtiff=4.3.0=hf544144_1
   - libtool=2.4.6=h58526e2_1007
   - libuuid=2.32.1=h7f98852_1000
@@ -277,4 +277,9 @@ dependencies:
   - zipp=3.5.0=pyhd8ed1ab_0
   - zlib=1.2.11=h516909a_1010
   - zstd=1.5.0=ha95c52a_0
+  - pip:
+    - gitpython=3.1.19=pyhd8ed1ab_0
+    - libgcc-ng=11.1.0=hc902ee8_2
+    - libgomp=11.1.0=hc902ee8_2
+    - libstdcxx-ng=11.1.0=h56837e0_2
 prefix: /data/taoyuhuan/tools/miniconda3/envs/RNAseq
