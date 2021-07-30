@@ -11,6 +11,21 @@ bash Miniconda2-4.5.11-Linux-x86_64.sh
 ```
 conda env create -f cfRNAseq.yaml
 ```
+if not success, try create environment by yourself
+```
+#python==3.9.6
+#R=3.6
+#Java version "11.0.9.1-internal"
+conda create --name cfRNAseq
+conda activate cfRNAseq
+conda install openjdk
+conda install -c bioconda snakemake
+conda install cutadapt=3.4
+conda install star=2.5.3a
+conda install samtools
+conda install bedtools
+conda install subread
+```
 3. Prepera tools and reference
 ```
 cp /BioII/lulab_b/taoyuhuan/cfRNAseq/tools /{your directory}
