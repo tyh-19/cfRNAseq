@@ -1,0 +1,11 @@
+Building DAG of jobs...
+File path '/data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg
+CRC-2276341_test_neg_1.fastq.gz' contains line break. This is likely unintended. It can also lead to inconsistent results of the file-matching approach used by Snakemake.
+File path '/data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg
+CRC-2276341_test_neg_2.fastq.gz' contains line break. This is likely unintended. It can also lead to inconsistent results of the file-matching approach used by Snakemake.
+MissingInputException in line 9 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
+Missing input files for rule all:
+/data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg
+CRC-2276341_test_neg_2.fastq.gz
+/data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg
+CRC-2276341_test_neg_1.fastq.gz

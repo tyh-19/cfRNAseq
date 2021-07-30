@@ -1,0 +1,53 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+all                   1              1              1
+genomic_region        2              1              1
+total                 3              1              1
+
+Select jobs to execute...
+
+[Tue Jul 27 17:39:24 2021]
+rule genomic_region:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region
+    jobid: 59
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 17:39:24 2021]
+rule genomic_region:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/genome_region
+    jobid: 60
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 17:39:24 2021]
+Error in rule genomic_region:
+    jobid: 59
+[Tue Jul 27 17:39:24 2021]
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region
+Error in rule genomic_region:
+    shell:
+        
+		sh /data/taoyuhuan/RNAseq/tools/sequential.assign.long.sh /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region /data/taoyuhuan/RNAseq/bed
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    jobid: 60
+
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/genome_region
+    shell:
+        
+		sh /data/taoyuhuan/RNAseq/tools/sequential.assign.long.sh /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long.bam /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/genome_region /data/taoyuhuan/RNAseq/bed
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /data/taoyuhuan/RNAseq/test_RNAseq/.snakemake/log/2021-07-27T173923.443129.snakemake.log

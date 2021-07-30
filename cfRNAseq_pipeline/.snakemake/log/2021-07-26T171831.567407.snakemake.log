@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 13 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
+Missing input files for rule cutadapt_pe:
+/data/taoyuhuan/RNAseq/test_RNAseq/fastqCRC-2418488_test_neg,CRC-2276341_test_neg_1.fastq.gz
+/data/taoyuhuan/RNAseq/test_RNAseq/fastqCRC-2418488_test_neg,CRC-2276341_test_neg_2.fastq.gz

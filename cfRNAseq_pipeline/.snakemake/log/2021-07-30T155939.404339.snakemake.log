@@ -1,0 +1,85 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job                              count    min threads    max threads
+-----------------------------  -------  -------------  -------------
+all                                  1              1              1
+count_matrix                         3              1              1
+featurecounts                        2              1              1
+featurecounts_intron_spanning        2              1              1
+featurecounts_rmdup                  2              1              1
+ref_gene_id_type_name                1              1              1
+total                               11              1              1
+
+Select jobs to execute...
+
+[Fri Jul 30 15:59:40 2021]
+rule featurecounts:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_sortbyName.bam, /data/taoyuhuan/RNAseq/reference/gtf/long_RNA.gtf
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/hg38_long/CRC-2418488_test_neg/featurecount, /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/hg38_long/CRC-2418488_test_neg/featurecount.summary
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/featurecount/hg38_long.log
+    jobid: 31
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 30 15:59:40 2021]
+rule featurecounts_rmdup:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_rmdup.bam, /data/taoyuhuan/RNAseq/reference/gtf/long_RNA.gtf
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/hg38_long_rmdup/CRC-2418488_test_neg/featurecount, /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/hg38_long_rmdup/CRC-2418488_test_neg/featurecount.summary
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/featurecount/hg38_long_rmdup.log
+    jobid: 33
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 30 15:59:40 2021]
+rule featurecounts_rmdup:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long_rmdup.bam, /data/taoyuhuan/RNAseq/reference/gtf/long_RNA.gtf
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/hg38_long_rmdup/CRC-2276341_test_neg/featurecount, /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/hg38_long_rmdup/CRC-2276341_test_neg/featurecount.summary
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/featurecount/hg38_long_rmdup.log
+    jobid: 34
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 30 15:59:40 2021]
+rule featurecounts_intron_spanning:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long_intron_spanning.bam, /data/taoyuhuan/RNAseq/reference/gtf/long_RNA.gtf
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/intron_spanning/CRC-2276341_test_neg/featurecount, /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/intron_spanning/CRC-2276341_test_neg/featurecount.summary
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/featurecount/hg38_long_intron_spanning.log
+    jobid: 36
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 30 15:59:40 2021]
+rule featurecounts:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long_sortbyName.bam, /data/taoyuhuan/RNAseq/reference/gtf/long_RNA.gtf
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/hg38_long/CRC-2276341_test_neg/featurecount, /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/hg38_long/CRC-2276341_test_neg/featurecount.summary
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/featurecount/hg38_long.log
+    jobid: 32
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 30 15:59:40 2021]
+rule featurecounts_intron_spanning:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_intron_spanning.bam, /data/taoyuhuan/RNAseq/reference/gtf/long_RNA.gtf
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/intron_spanning/CRC-2418488_test_neg/featurecount, /data/taoyuhuan/RNAseq/test_RNAseq/output/counts/intron_spanning/CRC-2418488_test_neg/featurecount.summary
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/featurecount/hg38_long_intron_spanning.log
+    jobid: 35
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+
+[Fri Jul 30 15:59:40 2021]
+rule ref_gene_id_type_name:
+    input: /data/taoyuhuan/RNAseq/reference/gtf/long_RNA.gtf
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/count_matrix/reference_genes.txt
+    jobid: 37
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output
+    resources: tmpdir=/tmp
+

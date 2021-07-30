@@ -1,0 +1,484 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                     count    min threads    max threads
+------------------------------------  -------  -------------  -------------
+add_ReadGroup                               1              1              1
+all                                         1              1              1
+count_bam_intron_spanning_read_pairs        1              1              1
+count_bam_read_pairs                        5              1              1
+count_clean_fastq_read_pairs                2              1              1
+count_raw_fastq_read_pairs                  1              1              1
+cutadapt_pe                                 1              1              1
+genomic_region                              1              1              1
+get_Intron_spanning                         1              1              1
+map_circRNA                                 1              1              1
+map_hg38_long                               1              1              1
+map_rRNA                                    1              1              1
+map_spikein_long                            1              1              1
+map_univec                                  1              1              1
+remove_duplicates                           3              1              1
+samtools_stats                              5              1              1
+samtools_stats_intron_spanning              1              1              1
+samtools_stats_rmdup                        3              1              1
+sort_bam_by_name                            3              1              1
+trimGC                                      1              1              1
+total                                      35              1              1
+
+Select jobs to execute...
+
+[Wed Jul 28 01:17:43 2021]
+rule cutadapt_pe:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2418488_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/cutadaptor.log
+    jobid: 1
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:17:43 2021]
+rule count_raw_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2418488_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/raw.txt
+    jobid: 18
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:17:43 2021]
+Finished job 18.
+1 of 35 steps (3%) done
+[Wed Jul 28 01:17:50 2021]
+Finished job 1.
+2 of 35 steps (6%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:17:50 2021]
+rule count_clean_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/cutadapt.txt
+    jobid: 16
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, clean_level=cutadapt
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:17:50 2021]
+rule trimGC:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/trimGC.log
+    jobid: 2
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:17:50 2021]
+Finished job 16.
+3 of 35 steps (9%) done
+[Wed Jul 28 01:18:29 2021]
+Finished job 2.
+4 of 35 steps (11%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:18:29 2021]
+rule map_spikein_long:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/spikein_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/spikein_long/mapping.log
+    jobid: 3
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:18:29 2021]
+rule count_clean_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/trimGC.txt
+    jobid: 17
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, clean_level=trimGC
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:18:29 2021]
+Finished job 17.
+5 of 35 steps (14%) done
+[Wed Jul 28 01:19:14 2021]
+Finished job 3.
+6 of 35 steps (17%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:19:14 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/spikein_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/spikein_long.txt
+    jobid: 19
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=spikein_long
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:19:14 2021]
+rule map_univec:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/univec.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/univec/mapping.log
+    jobid: 4
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:19:14 2021]
+Finished job 19.
+7 of 35 steps (20%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:19:14 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/spikein_long.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/spikein_long.txt
+    jobid: 28
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=spikein_long
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:19:14 2021]
+Finished job 28.
+8 of 35 steps (23%) done
+[Wed Jul 28 01:19:58 2021]
+Finished job 4.
+9 of 35 steps (26%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:19:58 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/univec.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/univec.txt
+    jobid: 20
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=univec
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:19:58 2021]
+rule map_rRNA:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/rRNA/mapping.out
+    jobid: 5
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:19:58 2021]
+Finished job 20.
+10 of 35 steps (29%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:19:58 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/univec.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/univec.txt
+    jobid: 29
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=univec
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:19:58 2021]
+Finished job 29.
+11 of 35 steps (31%) done
+[Wed Jul 28 01:20:34 2021]
+Finished job 5.
+12 of 35 steps (34%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:20:34 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/rRNA.txt
+    jobid: 21
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=rRNA
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:20:34 2021]
+rule map_hg38_long:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/hg38_long/mapping.log
+    jobid: 6
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:20:34 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA_sortbyName.bam
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtools_sort/rRNA_sortbynName.log
+    jobid: 8
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=rRNA
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:20:34 2021]
+Finished job 21.
+13 of 35 steps (37%) done
+Select jobs to execute...
+[Wed Jul 28 01:20:34 2021]
+Finished job 8.
+14 of 35 steps (40%) done
+
+[Wed Jul 28 01:20:34 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/rRNA.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/rRNA.txt
+    jobid: 30
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=rRNA
+    resources: tmpdir=/tmp
+
+Select jobs to execute...
+[Wed Jul 28 01:20:34 2021]
+Finished job 30.
+15 of 35 steps (43%) done
+
+[Wed Jul 28 01:20:34 2021]
+rule remove_duplicates:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA_sortbyName.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA_rmdup.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/remove_duplicate/rRNA_rmdup
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/picard_rmdup/rRNA_remove_duplicates.log
+    jobid: 11
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=rRNA
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:20:41 2021]
+Finished job 11.
+16 of 35 steps (46%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:20:42 2021]
+rule samtools_stats_rmdup:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA_rmdup.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/rRNA_rmdup.txt
+    jobid: 24
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_rmdup=rRNA
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:20:44 2021]
+Finished job 24.
+17 of 35 steps (49%) done
+[Wed Jul 28 01:23:27 2021]
+Finished job 6.
+18 of 35 steps (51%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:23:28 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_sortbyName.bam
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtools_sort/hg38_long_sortbynName.log
+    jobid: 9
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=hg38_long
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:23:28 2021]
+rule map_circRNA:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/circRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/circRNA_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/circRNA/mapping.log
+    jobid: 7
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:23:28 2021]
+rule genomic_region:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genomic_region/genomic_region.log
+    jobid: 34
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:23:28 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long.txt
+    jobid: 22
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=hg38_long
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:23:29 2021]
+Finished job 22.
+19 of 35 steps (54%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:23:29 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/hg38_long.txt
+    jobid: 31
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=hg38_long
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:23:29 2021]
+Finished job 31.
+20 of 35 steps (57%) done
+[Wed Jul 28 01:23:30 2021]
+Finished job 9.
+21 of 35 steps (60%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:23:30 2021]
+rule remove_duplicates:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_sortbyName.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_rmdup.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/remove_duplicate/hg38_long_rmdup
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/picard_rmdup/hg38_long_remove_duplicates.log
+    jobid: 12
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=hg38_long
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:23:40 2021]
+Finished job 12.
+22 of 35 steps (63%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:23:40 2021]
+rule add_ReadGroup:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_rmdup.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_rmdup_RG.bam
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/gatk/add_readgroup.log
+    jobid: 14
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:23:40 2021]
+rule samtools_stats_rmdup:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_rmdup.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long_rmdup.txt
+    jobid: 25
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_rmdup=hg38_long
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:23:40 2021]
+Finished job 25.
+23 of 35 steps (66%) done
+[Wed Jul 28 01:23:50 2021]
+Finished job 14.
+24 of 35 steps (69%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:23:50 2021]
+rule get_Intron_spanning:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_rmdup_RG.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_intron_spanning.bam
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/gatk/get_intron_spanning.log
+    jobid: 15
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:23:51 2021]
+Finished job 7.
+25 of 35 steps (71%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:23:51 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA_sortbyName.bam
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtools_sort/circRNA_sortbynName.log
+    jobid: 10
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=circRNA
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:23:51 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/circRNA.txt
+    jobid: 23
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=circRNA
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:23:51 2021]
+Finished job 23.
+26 of 35 steps (74%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:23:51 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/circRNA.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/circRNA.txt
+    jobid: 32
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=circRNA
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:23:51 2021]
+Finished job 10.
+27 of 35 steps (77%) done
+[Wed Jul 28 01:23:51 2021]
+Finished job 32.
+28 of 35 steps (80%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:23:52 2021]
+rule remove_duplicates:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA_sortbyName.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA_rmdup.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/remove_duplicate/circRNA_rmdup
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/picard_rmdup/circRNA_remove_duplicates.log
+    jobid: 13
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=circRNA
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:24:00 2021]
+Finished job 13.
+29 of 35 steps (83%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:24:01 2021]
+rule samtools_stats_rmdup:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA_rmdup.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/circRNA_rmdup.txt
+    jobid: 26
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_rmdup=circRNA
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:24:01 2021]
+Finished job 26.
+30 of 35 steps (86%) done
+[Wed Jul 28 01:24:23 2021]
+Finished job 15.
+31 of 35 steps (89%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:24:23 2021]
+rule samtools_stats_intron_spanning:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_intron_spanning.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long_intron_spanning.txt
+    jobid: 27
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:24:23 2021]
+Finished job 27.
+32 of 35 steps (91%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:24:23 2021]
+rule count_bam_intron_spanning_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long_intron_spanning.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/hg38_long_intron_spanning.txt
+    jobid: 33
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:24:23 2021]
+Finished job 33.
+33 of 35 steps (94%) done
+[Wed Jul 28 01:25:11 2021]
+Finished job 34.
+34 of 35 steps (97%) done
+Select jobs to execute...
+
+[Wed Jul 28 01:25:11 2021]
+localrule all:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/spikein_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/univec.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA_sortbyName.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_sortbyName.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA_sortbyName.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA_rmdup.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_rmdup.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA_rmdup.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_rmdup_RG.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_intron_spanning.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/circRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/circRNA_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/cutadapt.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/trimGC.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/raw.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/spikein_long.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/univec.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/rRNA.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/circRNA.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/rRNA_rmdup.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long_rmdup.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/circRNA_rmdup.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long_intron_spanning.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/spikein_long.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/univec.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/rRNA.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/hg38_long.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/circRNA.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/rRNA_rmdup.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long_rmdup.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/circRNA_rmdup.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/hg38_long_intron_spanning.txt, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region
+    jobid: 0
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:25:11 2021]
+Finished job 0.
+35 of 35 steps (100%) done
+Complete log: /data/taoyuhuan/RNAseq/test_RNAseq/.snakemake/log/2021-07-28T011742.231331.snakemake.log

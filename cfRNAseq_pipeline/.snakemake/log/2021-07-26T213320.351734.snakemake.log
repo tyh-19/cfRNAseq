@@ -1,0 +1,4 @@
+Building DAG of jobs...
+WildcardError in line 85 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
+Wildcards in input files cannot be determined from output files:
+'index'

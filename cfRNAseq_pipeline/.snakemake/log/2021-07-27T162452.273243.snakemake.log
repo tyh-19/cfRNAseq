@@ -1,0 +1,309 @@
+Building DAG of jobs...
+Job stats:
+job                             count    min threads    max threads
+----------------------------  -------  -------------  -------------
+all                                 1              1              1
+count_bam_read_pairs               10              1              1
+count_clean_fastq_read_pairs        4              1              1
+count_raw_fastq_read_pairs          2              1              1
+map_circRNA                         2              1              1
+map_hg38_long                       2              1              1
+map_rRNA                            2              1              1
+map_spikein_long                    2              1              1
+map_univec                          2              1              1
+remove_duplicates                   6              1              1
+samtools_stats                     10              1              1
+samtools_stats_rmdup                6              1              1
+sort_bam_by_name                    6              1              1
+total                              55              1              1
+
+
+[Tue Jul 27 16:24:52 2021]
+rule map_spikein_long:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2276341_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/spikein_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/spikein_long_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/mapping_star/spikein_long/Log.final.out
+    jobid: 10
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 16:24:52 2021]
+rule count_clean_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2276341_test_neg/cutadapt.txt
+    jobid: 29
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, clean_level=cutadapt
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule count_raw_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2276341_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2276341_test_neg/raw.txt
+    jobid: 32
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule count_clean_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2418488_test_neg/cutadapt.txt
+    jobid: 27
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, clean_level=cutadapt
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule count_clean_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2276341_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2276341_test_neg/trimGC.txt
+    jobid: 30
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, clean_level=trimGC
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule map_spikein_long:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/spikein_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/spikein_long/Log.final.out
+    jobid: 5
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 16:24:52 2021]
+rule count_clean_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2418488_test_neg/trimGC.txt
+    jobid: 28
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, clean_level=trimGC
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule count_raw_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2418488_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2418488_test_neg/raw.txt
+    jobid: 31
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/spikein_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/spikein_long.txt
+    jobid: 33
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=spikein_long
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/spikein_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/spikein_long.txt
+    jobid: 38
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step=spikein_long
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule map_univec:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/spikein_long_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/univec.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/univec_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/univec_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/mapping_star/univec/Log.final.out
+    jobid: 11
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 16:24:52 2021]
+rule map_univec:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/univec.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/univec/Log.final.out
+    jobid: 6
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 16:24:52 2021]
+rule map_rRNA:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/univec_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/univec_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/rRNA.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/rRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/rRNA_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/mapping_star/rRNA/Log.final.out
+    jobid: 12
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 16:24:52 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/spikein_long.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2418488_test_neg/spikein_long.txt
+    jobid: 49
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=spikein_long
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/univec.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/univec.txt
+    jobid: 34
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=univec
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/spikein_long.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2276341_test_neg/spikein_long.txt
+    jobid: 54
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step=spikein_long
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/univec.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/univec.txt
+    jobid: 39
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step=univec
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule map_rRNA:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/univec_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/rRNA/Log.final.out
+    jobid: 7
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 16:24:52 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/rRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/rRNA.txt
+    jobid: 40
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step=rRNA
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/univec.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2276341_test_neg/univec.txt
+    jobid: 55
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step=univec
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule map_hg38_long:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/rRNA_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/hg38_long/Log.final.out
+    jobid: 8
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 16:24:52 2021]
+rule map_hg38_long:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/rRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/rRNA_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/hg38_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/hg38_long_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/mapping_star/hg38_long/Log.final.out
+    jobid: 13
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 16:24:52 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/rRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/rRNA_sortbyName.bam
+    jobid: 18
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step_sortbyName=rRNA
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/univec.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2418488_test_neg/univec.txt
+    jobid: 50
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=univec
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA_sortbyName.bam
+    jobid: 15
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=rRNA
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/rRNA.txt
+    jobid: 35
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=rRNA
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_sortbyName.bam
+    jobid: 16
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=hg38_long
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long.txt
+    jobid: 36
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=hg38_long
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule map_circRNA:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/hg38_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/hg38_long_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/circRNA.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/circRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/circRNA_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/mapping_star/circRNA/Log.final.out
+    jobid: 14
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+[Tue Jul 27 16:24:52 2021]
+rule count_bam_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/rRNA.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/read_pair/CRC-2276341_test_neg/rRNA.txt
+    jobid: 56
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step=rRNA
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long_sortbyName.bam
+    jobid: 19
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step_sortbyName=hg38_long
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/hg38_long.txt
+    jobid: 41
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step=hg38_long
+    resources: tmpdir=/tmp
+
+
+[Tue Jul 27 16:24:52 2021]
+rule remove_duplicates:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA_sortbyName.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/rRNA_rmdup.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/remove_duplicate/rRNA_rmdup
+    jobid: 21
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=rRNA
+    resources: tmpdir=/tmp
+
+RuleException in line 194 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
+NameError: The name 'tools' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

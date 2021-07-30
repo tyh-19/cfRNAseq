@@ -1,0 +1,24 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job       count    min threads    max threads
+------  -------  -------------  -------------
+all           1              1              1
+trimGC        1              1              1
+total         2              1              1
+
+Select jobs to execute...
+
+[Mon Jul 26 17:27:44 2021]
+rule trimGC:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg_trimGC.log
+    jobid: 2
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+RuleException in line 31 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
+NameError: The name 'sample_id' is unknown in this context. Did you mean 'wildcards.sample_id'?

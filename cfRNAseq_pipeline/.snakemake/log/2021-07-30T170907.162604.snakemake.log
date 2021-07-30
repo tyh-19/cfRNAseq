@@ -1,0 +1,23 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count    min threads    max threads
+------------  -------  -------------  -------------
+all                 1              1              1
+count_matrix        3              1              1
+total               4              1              1
+
+Select jobs to execute...
+
+[Fri Jul 30 17:09:08 2021]
+rule count_matrix:
+    input: /data/taoyuhuan/RNAseq/reference/gtf/reference_genes.txt
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/count_matrix/count_matrix_hg38_long_rmdup.txt
+    jobid: 38
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, count_level=hg38_long_rmdup
+    resources: tmpdir=/tmp
+
+RuleException in line 387 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
+NameError: The name 'input_dir' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

@@ -1,0 +1,59 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 2
+Job stats:
+job                                     count    min threads    max threads
+------------------------------------  -------  -------------  -------------
+add_ReadGroup                               2              1              1
+all                                         1              1              1
+count_bam_intron_spanning_read_pairs        2              1              1
+count_bam_read_pairs                       10              1              1
+count_bam_rmdup_read_pairs                  6              1              1
+count_clean_fastq_read_pairs                4              1              1
+count_raw_fastq_read_pairs                  2              1              1
+cutadapt_pe                                 2              1              1
+featurecounts                               2              1              1
+featurecounts_intron_spanning               2              1              1
+featurecounts_rmdup                         2              1              1
+genomic_region                              2              1              1
+get_Intron_spanning                         2              1              1
+map_circRNA                                 2              1              1
+map_hg38_long                               2              1              1
+map_rRNA                                    2              1              1
+map_spikein_long                            2              1              1
+map_univec                                  2              1              1
+remove_duplicates                           6              1              1
+samtools_stats                             10              1              1
+samtools_stats_intron_spanning              2              1              1
+samtools_stats_rmdup                        6              1              1
+sort_bam_by_name                            6              1              1
+trimGC                                      2              1              1
+total                                      81              1              1
+
+Select jobs to execute...
+
+[Wed Jul 28 17:39:50 2021]
+rule cutadapt_pe:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2276341_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/cutadaptor.log
+    jobid: 2
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+Error submitting jobscript (exit code 1):
+
+
+[Wed Jul 28 17:39:50 2021]
+rule count_raw_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2418488_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/raw.txt
+    jobid: 41
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+Error submitting jobscript (exit code 1):
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /data/taoyuhuan/RNAseq/test_RNAseq/.snakemake/log/2021-07-28T173950.017820.snakemake.log

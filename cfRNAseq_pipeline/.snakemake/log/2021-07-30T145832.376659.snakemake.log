@@ -1,0 +1,5 @@
+The flag 'directory' used in rule count_matrix is only valid for outputs, not inputs.
+Building DAG of jobs...
+MissingInputException in line 386 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
+Missing input files for rule count_matrix:
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/hg38_long

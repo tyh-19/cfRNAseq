@@ -1,0 +1,151 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                     count    min threads    max threads
+------------------------------------  -------  -------------  -------------
+add_ReadGroup                               2              1              1
+all                                         1              1              1
+count_bam_intron_spanning_read_pairs        2              1              1
+count_bam_read_pairs                        4              1              1
+genomic_region                              1              1              1
+get_Intron_spanning                         2              1              1
+map_circRNA                                 1              1              1
+remove_duplicates                           4              1              1
+samtools_stats                              4              1              1
+samtools_stats_intron_spanning              2              1              1
+samtools_stats_rmdup                        4              1              1
+sort_bam_by_name                            4              1              1
+total                                      31              1              1
+
+Select jobs to execute...
+
+[Wed Jul 28 01:03:38 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/hg38_long.txt
+    jobid: 45
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step=hg38_long
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:03:38 2021]
+rule map_circRNA:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/hg38_long_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/circRNA.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/circRNA_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/circRNA_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/circRNA/mapping.log
+    jobid: 9
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:03:38 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/circRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/circRNA_sortbyName.bam
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtools_sort/circRNA_sortbynName.log
+    jobid: 20
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step_sortbyName=circRNA
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:03:38 2021]
+Error in rule samtools_stats:
+
+    jobid: 45
+[Wed Jul 28 01:03:38 2021]
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/hg38_long.txt
+rule genomic_region:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genomic_region/genomic_region.log
+    jobid: 67
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+    shell:
+        
+		samtools stats /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long.bam > /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/hg38_long.txt
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+
+Removing output files of failed job samtools_stats since they might be corrupted:
+/data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/hg38_long.txt
+
+[Wed Jul 28 01:03:38 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long_sortbyName.bam
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtools_sort/hg38_long_sortbynName.log
+    jobid: 19
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step_sortbyName=hg38_long
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:03:38 2021]
+rule sort_bam_by_name:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long_sortbyName.bam
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtools_sort/hg38_long_sortbynName.log
+    jobid: 16
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step_sortbyName=hg38_long
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:03:38 2021]
+Error in rule sort_bam_by_name:
+    jobid: 19
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long_sortbyName.bam
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtools_sort/hg38_long_sortbynName.log (check log file(s) for error message)
+    shell:
+        
+		samtools sort -n -T /data/taoyuhuan/RNAseq/test_RNAseq/temp -o /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long_sortbyName.bam /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/hg38_long.bam > /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtools_sort/hg38_long_sortbynName.log 2>&1
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+
+[Wed Jul 28 01:03:38 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/circRNA.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/samtool_stats/circRNA.txt
+    jobid: 46
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, map_step=circRNA
+    resources: tmpdir=/tmp
+
+
+[Wed Jul 28 01:03:38 2021]
+rule samtools_stats:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/samtool_stats/hg38_long.txt
+    jobid: 40
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, map_step=hg38_long
+    resources: tmpdir=/tmp
+
+[Wed Jul 28 01:03:38 2021]
+Finished job 46.
+1 of 31 steps (3%) done
+[Wed Jul 28 01:03:38 2021]
+Finished job 20.
+2 of 31 steps (6%) done
+[Wed Jul 28 01:03:38 2021]
+Finished job 40.
+3 of 31 steps (10%) done
+[Wed Jul 28 01:03:40 2021]
+Finished job 16.
+4 of 31 steps (13%) done
+[Wed Jul 28 01:03:49 2021]
+Finished job 9.
+5 of 31 steps (16%) done
+Terminating processes on user request, this might take some time.
+[Wed Jul 28 01:04:43 2021]
+Error in rule genomic_region:
+    jobid: 67
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genomic_region/genomic_region.log (check log file(s) for error message)
+    shell:
+        
+		sh /data/taoyuhuan/RNAseq/tools/sequential.assign.long.sh /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/hg38_long.bam /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region /data/taoyuhuan/RNAseq/reference/bed > /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genomic_region/genomic_region.log 2>&1
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job genomic_region since they might be corrupted:
+/data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/genome_region
+Complete log: /data/taoyuhuan/RNAseq/test_RNAseq/.snakemake/log/2021-07-28T010336.577646.snakemake.log

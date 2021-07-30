@@ -1,0 +1,43 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job                 count    min threads    max threads
+----------------  -------  -------------  -------------
+all                     1              1              1
+cutadapt_pe             1              1              1
+map_circRNA             2              1              1
+map_hg38_long           2              1              1
+map_rRNA                2              1              1
+map_spikein_long        2              1              1
+map_univec              2              1              1
+trimGC                  1              1              1
+total                  13              1              1
+
+Select jobs to execute...
+
+[Mon Jul 26 22:35:07 2021]
+rule cutadapt_pe:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2276341_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg_cutadaptor.log
+    jobid: 2
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+
+[Mon Jul 26 22:35:07 2021]
+rule map_spikein_long:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/spikein_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_2.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/mapping_star/CRC-2418488_test_neg/spikein_long/Log.final.out
+    jobid: 5
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+[Mon Jul 26 22:35:19 2021]
+Finished job 2.
+1 of 13 steps (8%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /data/taoyuhuan/RNAseq/test_RNAseq/.snakemake/log/2021-07-26T223457.905200.snakemake.log

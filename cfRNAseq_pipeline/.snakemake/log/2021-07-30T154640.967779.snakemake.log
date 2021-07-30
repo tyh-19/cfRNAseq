@@ -1,0 +1,15 @@
+Building DAG of jobs...
+MissingInputException in line 107 of /data/taoyuhuan/RNAseq/test_RNAseq/RNAseq.snakefile:
+Missing input files for rule all:
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2276341_test_neg/hg38_long.summary
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2418488_test_neg/hg38_long
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2418488_test_neg/hg38_long_rmdup
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2418488_test_neg/hg38_long_intron_spanning.summary
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2276341_test_neg/hg38_long_rmdup
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2276341_test_neg/hg38_long_intron_spanning.summary
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2418488_test_neg/hg38_long_rmdup.summary
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2276341_test_neg/hg38_long
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2418488_test_neg/hg38_long.summary
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2418488_test_neg/hg38_long_intron_spanning
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2276341_test_neg/hg38_long_rmdup.summary
+/data/taoyuhuan/RNAseq/test_RNAseq/output/counts/featurecounts/CRC-2276341_test_neg/hg38_long_intron_spanning

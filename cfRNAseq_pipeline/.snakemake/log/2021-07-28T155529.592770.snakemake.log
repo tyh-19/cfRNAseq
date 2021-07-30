@@ -1,0 +1,192 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 2
+Job stats:
+job                                     count    min threads    max threads
+------------------------------------  -------  -------------  -------------
+add_ReadGroup                               2              1              1
+all                                         1              1              1
+count_bam_intron_spanning_read_pairs        2              1              1
+count_bam_read_pairs                       10              1              1
+count_bam_rmdup_read_pairs                  6              1              1
+count_clean_fastq_read_pairs                4              1              1
+count_raw_fastq_read_pairs                  2              1              1
+cutadapt_pe                                 2              1              1
+featurecounts                               2              1              1
+featurecounts_intron_spanning               2              1              1
+featurecounts_rmdup                         2              1              1
+genomic_region                              2              1              1
+get_Intron_spanning                         2              1              1
+map_circRNA                                 2              1              1
+map_hg38_long                               2              1              1
+map_rRNA                                    2              1              1
+map_spikein_long                            2              1              1
+map_univec                                  2              1              1
+remove_duplicates                           6              1              1
+samtools_stats                             10              1              1
+samtools_stats_intron_spanning              2              1              1
+samtools_stats_rmdup                        6              1              1
+sort_bam_by_name                            6              1              1
+trimGC                                      2              1              1
+total                                      81              1              1
+
+Select jobs to execute...
+
+[Wed Jul 28 15:55:30 2021]
+rule cutadapt_pe:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2418488_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/cutadaptor.log
+    jobid: 1
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+Submitted job 1 with external jobid 'Submitted batch job 83852'.
+
+[Wed Jul 28 15:55:30 2021]
+rule count_raw_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2418488_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/raw.txt
+    jobid: 41
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+Submitted job 41 with external jobid 'Submitted batch job 83853'.
+[Wed Jul 28 15:55:40 2021]
+Finished job 1.
+1 of 81 steps (1%) done
+Select jobs to execute...
+[Wed Jul 28 15:55:40 2021]
+Finished job 41.
+2 of 81 steps (2%) done
+
+[Wed Jul 28 15:55:40 2021]
+rule count_clean_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/read_pair/cutadapt.txt
+    jobid: 37
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg, clean_level=cutadapt
+    resources: tmpdir=/tmp
+
+Submitted job 37 with external jobid 'Submitted batch job 83854'.
+Select jobs to execute...
+
+[Wed Jul 28 15:55:40 2021]
+rule count_raw_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2276341_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/read_pair/raw.txt
+    jobid: 42
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+Submitted job 42 with external jobid 'Submitted batch job 83855'.
+Waiting at most 6000 seconds for missing files.
+[Wed Jul 28 15:56:10 2021]
+Finished job 37.
+3 of 81 steps (4%) done
+Select jobs to execute...
+[Wed Jul 28 15:56:10 2021]
+Finished job 42.
+4 of 81 steps (5%) done
+
+[Wed Jul 28 15:56:10 2021]
+rule trimGC:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2418488_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/trimGC.log
+    jobid: 3
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+Submitted job 3 with external jobid 'Submitted batch job 83856'.
+Select jobs to execute...
+
+[Wed Jul 28 15:56:10 2021]
+rule cutadapt_pe:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/fastq/CRC-2276341_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/cutadaptor.log
+    jobid: 2
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+Submitted job 2 with external jobid 'Submitted batch job 83857'.
+Waiting at most 6000 seconds for missing files.
+[Wed Jul 28 15:56:40 2021]
+Finished job 2.
+5 of 81 steps (6%) done
+Select jobs to execute...
+
+[Wed Jul 28 15:56:40 2021]
+rule trimGC:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2276341_test_neg_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/trimGC.log
+    jobid: 4
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+Submitted job 4 with external jobid 'Submitted batch job 83858'.
+[Wed Jul 28 15:57:20 2021]
+Finished job 3.
+6 of 81 steps (7%) done
+Select jobs to execute...
+[Wed Jul 28 15:57:20 2021]
+Finished job 4.
+7 of 81 steps (9%) done
+
+[Wed Jul 28 15:57:20 2021]
+rule count_clean_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/cutadapt/CRC-2276341_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/read_pair/cutadapt.txt
+    jobid: 39
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, clean_level=cutadapt
+    resources: tmpdir=/tmp
+
+Submitted job 39 with external jobid 'Submitted batch job 83859'.
+Select jobs to execute...
+
+[Wed Jul 28 15:57:20 2021]
+rule map_spikein_long:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2276341_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2276341_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2276341_test_neg/spikein_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2276341_test_neg/spikein_long_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/mapping_star/spikein_long/mapping.log
+    jobid: 10
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg
+    resources: tmpdir=/tmp
+
+Submitted job 10 with external jobid 'Submitted batch job 83860'.
+Waiting at most 6000 seconds for missing files.
+[Wed Jul 28 15:57:50 2021]
+Finished job 39.
+8 of 81 steps (10%) done
+Select jobs to execute...
+
+[Wed Jul 28 15:57:50 2021]
+rule count_clean_fastq_read_pairs:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2276341_test_neg_1.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2276341_test_neg/read_pair/trimGC.txt
+    jobid: 40
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2276341_test_neg, clean_level=trimGC
+    resources: tmpdir=/tmp
+
+Submitted job 40 with external jobid 'Submitted batch job 83861'.
+Waiting at most 6000 seconds for missing files.
+[Wed Jul 28 15:58:20 2021]
+Finished job 40.
+9 of 81 steps (11%) done
+Select jobs to execute...
+
+[Wed Jul 28 15:58:20 2021]
+rule map_spikein_long:
+    input: /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/trimGC/CRC-2418488_test_neg_2.fastq.gz
+    output: /data/taoyuhuan/RNAseq/test_RNAseq/output/bam/CRC-2418488_test_neg/spikein_long.bam, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_1.fastq.gz, /data/taoyuhuan/RNAseq/test_RNAseq/output/unmapped/CRC-2418488_test_neg/spikein_long_2.fastq.gz
+    log: /data/taoyuhuan/RNAseq/test_RNAseq/output/log/CRC-2418488_test_neg/mapping_star/spikein_long/mapping.log
+    jobid: 5
+    wildcards: output_dir=/data/taoyuhuan/RNAseq/test_RNAseq/output, sample_id=CRC-2418488_test_neg
+    resources: tmpdir=/tmp
+
+Submitted job 5 with external jobid 'Submitted batch job 83862'.
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Complete log: /data/taoyuhuan/RNAseq/test_RNAseq/.snakemake/log/2021-07-28T155529.592770.snakemake.log
