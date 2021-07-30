@@ -7,7 +7,7 @@
 wget -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda2-4.5.11-Linux-x86_64.sh
 bash Miniconda2-4.5.11-Linux-x86_64.sh
 ```
-2. Create an environemt for cfRNAseq, cfRNAseq.yaml can be find in ./cfRNAseq_pipeline
+2. Create an environemt for cfRNAseq, cfRNAseq.yaml can be find in ./cfRNAseq
 ```
 conda env create -f cfRNAseq.yaml
 ```
